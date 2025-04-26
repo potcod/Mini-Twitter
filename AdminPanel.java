@@ -1,22 +1,10 @@
-import java.awt.Color;
-import java.awt.Dimension;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JSplitPane;
-import javax.swing.JTextField;
-import javax.swing.JTree;
+
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
-import javax.swing.JLabel;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeModel;
 import javax.swing.*;
 import javax.swing.tree.*;
 import java.awt.*;
@@ -253,10 +241,11 @@ public class AdminPanel {
         panel.add(showGroupTotalButton,constraints);
         showGroupTotalButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae){
+                System.out.println("Group total: " + groupTotal);
                 checkDisplayEmpty(panel);
                 groupTotalDisplay = new JLabel("Group Total: " + groupTotal);
                 constraints.gridx = 0;
-                constraints.gridy = 5;
+                constraints.gridy = 6;
                 panel.add(groupTotalDisplay, constraints);
                 panel.revalidate();
                 panel.repaint();
@@ -274,7 +263,7 @@ public class AdminPanel {
 
                 userTotalDisplay = new JLabel("User Total: " + userTotal);
                 constraints.gridx = 0;
-                constraints.gridy = 5;
+                constraints.gridy = 6;
                 panel.add(userTotalDisplay, constraints);
                 panel.revalidate();
                 panel.repaint();
@@ -297,7 +286,7 @@ public class AdminPanel {
 
                 messageTotalDisplay = new JLabel("Total Messages: " + totalMessages);
                 constraints.gridx = 0;
-                constraints.gridy = 5;
+                constraints.gridy = 6;
                 panel.add(messageTotalDisplay, constraints);
                 panel.revalidate();
                 panel.repaint();
@@ -321,11 +310,11 @@ public class AdminPanel {
                 }
                 checkDisplayEmpty(panel);
                 
-                double positiveRatio = (double) totalMessages/positiveMessages;
+                double positiveRatio = (double) positiveMessages / (double) totalMessages;
                 System.out.println("HEREE" + positiveRatio);
                 positiveTotalDisplay = new JLabel("Positive Message Ratio: " + positiveRatio);
                 constraints.gridx = 0;
-                constraints.gridy = 5;
+                constraints.gridy = 6;
                 panel.add(positiveTotalDisplay, constraints);
                 panel.revalidate();
                 panel.repaint();
